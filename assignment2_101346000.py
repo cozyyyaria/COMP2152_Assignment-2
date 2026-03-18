@@ -21,7 +21,8 @@ print(f"Operating System: {os.name}")
 # TODO: Create the common_ports dictionary (Step iv)
 # Add a 1-line comment above it explaining what it stores
 
-# Dictionary mapping common port numbers to their associated network service names
+# Dictionary mapping
+#  common port numbers to their associated network service names
 common_ports = {
     21: "FTP",
     22: "SSH",
@@ -285,11 +286,13 @@ if __name__ == "__main__":
 
 
 # Q5: New Feature Proposal
-# I would add a port severity rating feature that categorises each open port
-# as Low, Medium, or High risk based on known vulnerability profiles. It would
-# use a nested if-statement: if the port is open, check if it is in a
-# high-risk list (e.g. 23 Telnet, 21 FTP); if so, label it High; elif it is
-# in a medium-risk list (e.g. 3306 MySQL, 3389 RDP), label it Medium;
-# otherwise label it Low. This helps users quickly prioritise which open
-# ports to investigate without needing external tools.
+# I would add a Port Risk Classifier that categorises each open port as High,
+# Medium, or Low risk. The feature calls get_open_ports() and loops through
+# the results. For each port it uses a nested if-statement: if the port is in
+# the high-risk list [21, 22, 23, 3389] (FTP, SSH, Telnet, RDP) it is labelled
+# High; elif it is in the medium-risk list [25, 110, 143, 3306] (SMTP, POP3,
+# IMAP, MySQL) it is labelled Medium; else it is labelled Low. Each result
+# (port, service, risk_level) is appended to a list and a risk report is
+# printed at the end. This helps users quickly prioritise which open ports to
+# investigate without needing external tools.
 # Diagram: See diagram_101346000.png in the repository root
